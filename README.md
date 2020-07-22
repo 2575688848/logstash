@@ -14,10 +14,13 @@
         inf      基础服务方向配置文件
         sre      基础运维方向配置文件
         
+    logs         logstash 的日志文件
+        日志文件
+        
 ### Logstash 部署整理
 
-         yz-saas-elk-es-01 logstash:        
-  
+         yz-saas-elk-es-01 logstash: 5
+         
          	fex_hammer.conf
          	
          	inf_search_api_test.conf
@@ -28,10 +31,8 @@
          
          	back_sms.conf
          
-         
-         
-         
-         yz-saas-elk-es-02  logstash:
+
+         yz-saas-elk-es-02  logstash: 12
          
          	inf_search_api.conf
          	
@@ -39,7 +40,7 @@
          	
          	nginx_lannx_v.conf
          	
-         	nginx_lannx_upload_store_higoNotify.conf
+         	nginx_lannx_upload_store_higoNotify_sms.conf
          	
          	fex_gls-web.conf
          	
@@ -57,18 +58,16 @@
          	
          	back_imservice.conf
          
-         
-         
-         
-         yz-saas-elk-es-03  logstash:
-         
+
+         yz-saas-elk-es-03  logstash: 10
+          
          	inf_tracking.conf
          
          	inf_dataengine.conf
          
          	back_pay.conf
          
-         	back_goods.conf
+         	back_goods.con
          
          	back_order.conf
          
@@ -79,9 +78,11 @@
          	fex_huaservice.conf
          
          	fex_im-node.conf
-         	
          
-         yz-saas-elk-es-00  logstash:
+         	nginx_lannx_all_service.conf
+         
+
+         yz-saas-elk-es-00  logstash: 11
          
          	back_store.conf
          
@@ -105,8 +106,20 @@
          
          	nginx_wannx_v.conf
 
+
 ### 批量控制命令：
 
     ps -ef | grep logstash | grep -v grep | awk '{print $2}' | wc -l
     
     ps -ef | grep logstash | grep -v grep | awk '{print $2}' | xargs kill
+    
+    
+### nginx access log 匹配正则：
+    
+    \[(?<remote_addr>[^\[\]]*)\] \[(?<remote_user>[^\[\]]*)\] \[(?<time_local>[^\[\]]*)\] \[(?<request>[^\[\]]*)\] \[(?<status>[^\[\]]*)\] \[(?<body_bytes_sent>[^\[\]]*)\] \[(?<http_referer>[^\[\]]*)\] \[(?<http_user_agent>[^\[\]]*)\] \[(?<http_x_forwarded_for>[^\[\]]*)\] \[(?<http_cookie>[^\[\]]*)\] \[(?<request_time>[^\[\]]*)\] \[(?<upstream_addr>[^\[\]]*)\] \[(?<upstream_response_time>[^\[\]]*)\] \[(?<empty>[^\[\]]*)\] \[(?<host>[^\[\]]*)\] \[(?<sent_http_set_cookie>[^\[\]]*)\]
+        
+
+
+### nginx error log 匹配正则：
+    
+    (?<timestamp>\d{4}/\d{2}/\d{2} \d{2}:\d{2}:\d{2}) \[%{LOGLEVEL:severity}\] %{POSINT:pid}#%{NUMBER}: %{GREEDYDATA:errormessage}(?:, client: (?<remote_addr>%{IP}|%{HOSTNAME}))(?:, server: %{IPORHOST:server}?)(?:, request: %{QS:request})(?:, upstream: (?<upstream>\"%{URI}\"|%{QS}))?(?:, host: %{QS:request_host})?(?:, referrer: \"%{URI:referrer}\")?
