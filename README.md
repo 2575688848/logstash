@@ -19,92 +19,97 @@
         
 ### Logstash 部署整理
 
-         yz-saas-elk-es-01 logstash: 5
-         
-         	fex_hammer.conf
-         	
-         	inf_search_api_test.conf
-         	
-         	fex_qiniu-video.conf
-         	
-         	fex_api-proxy.conf
-         
-         	back_sms.conf
-         
+    yz-saas-elk-es-01 logstash: 5 nginx 0
+    
+    
+    	fex_hammer.conf
+    	
+    	inf_search_api_test.conf
+    	
+    	fex_qiniu-video.conf
+    	
+    	fex_api-proxy.conf
+    
+    	back_sms.conf
+    
+    
+    
+    
+    yz-saas-elk-es-02  logstash: 9 nginx 4
+    
+    
+    	inf_search_api
+    	
+    	nginx_lannx_v
+    	
+    	nginx_lannx_fex_service
+    
+    	nginx_lannx_search
+    	
+    	nginx_error
+    	
+    	fex_gls-web
+    	
+    	fex_gls-api
+    	
+    	fex_jarvis
+    	
+    	back_imservice
+    
+    
+    
+    
+    yz-saas-elk-es-03  logstash: 10  nginx 1
+     
+    	
+    	inf_tracking
+    
+    	inf_dataengine
+    
+    	back_pay
+    
+    	back_goods
+    
+    	back_order
+    
+    	back_coupon
+    
+    	back_account
+    
+    	fex_huaservice
+    
+    	fex_im-node
+    
+    	nginx_lannx_all_service
+    
+    	fex_node_jarvis
+    
+    
+    
+    yz-saas-elk-es-00  logstash: 11 nginx 5
+    
+    	back_store
+    
+    	back_prada
+    
+    	back_notify
+    
+    	back_dior
+    
+    	back_content
+    
+    	back_adx
+    
+    	nginx_wannx_www
+    
+    	nginx_wannx_m
+    
+    	nginx_wannx_glk
+    
+    	nginx_wannx_a
+    
+    	nginx_wannx_v
 
-         yz-saas-elk-es-02  logstash: 12
-         
-         	inf_search_api.conf
-         	
-         	nginx_lannx_account.conf
-         	
-         	nginx_lannx_v.conf
-         	
-         	nginx_lannx_upload_store_higoNotify_sms.conf
-         	
-         	fex_gls-web.conf
-         	
-         	fex_gls-api.conf
-         	
-         	nginx_lannx_sh_erp_backendkf_apimsg.conf
-         	
-         	nginx_lannx_coupon_order_im_search.conf
-         	
-         	nginx_lannx_higoContent_higoAccount_higoGoods.conf
-         	
-         	nginx_lannx_content_push_comment_biz.conf
-         	
-         	fex_jarvis.conf
-         	
-         	back_imservice.conf
-         
-
-         yz-saas-elk-es-03  logstash: 10
-          
-         	inf_tracking.conf
-         
-         	inf_dataengine.conf
-         
-         	back_pay.conf
-         
-         	back_goods.con
-         
-         	back_order.conf
-         
-         	back_coupon.conf
-         
-         	back_account.conf
-         
-         	fex_huaservice.conf
-         
-         	fex_im-node.conf
-         
-         	nginx_lannx_all_service.conf
-         
-
-         yz-saas-elk-es-00  logstash: 11
-         
-         	back_store.conf
-         
-         	back_prada.conf
-         
-         	back_notify.conf
-         
-         	back_dior.conf
-         
-         	back_content.conf
-         
-         	back_adx.conf
-         
-         	nginx_wannx_www.conf
-         
-         	nginx_wannx_m.conf
-         
-         	nginx_wannx_glk.conf
-         
-         	nginx_wannx_a.conf
-         
-         	nginx_wannx_v.conf
 
 
 ### 批量控制命令：
