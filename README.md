@@ -19,7 +19,7 @@
         
 ### Logstash 部署整理
 
-    yz-saas-elk-es-01 logstash: 5 nginx 0
+    yz-saas-elk-es-01 logstash: 7 nginx 0
     
     
     	fex_hammer.conf
@@ -31,6 +31,10 @@
     	fex_api-proxy.conf
     
     	back_sms.conf
+    	
+    	back_php_slow
+    	
+    	back_php_error
     
     
     
