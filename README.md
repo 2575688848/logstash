@@ -39,7 +39,7 @@
     
     
     
-    yz-saas-elk-es-02  logstash: 9 nginx 4
+    yz-saas-elk-es-02  logstash: 10 nginx 4
     
     
     	inf_search_api
@@ -59,6 +59,8 @@
     	fex_jarvis
     	
     	back_imservice
+    	
+    	back_pandora
     
     
     
